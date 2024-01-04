@@ -28,20 +28,42 @@ const DataTable = () => {
           />
         </div>
         <div>
-          <button className="addd"></button>
+          <button className="addd"> ADD</button>
         </div>
       </div>
       <div className="search-table-container">
-         
-      <input
-            type="text"
-            placeholder="Search by Name"
-            value={""}
-            className="search-input"
-            onChange={() => {}}
-          />
+        <input
+          type="text"
+          placeholder="Search by Name"
+          value={""}
+          className="search-input"
+          onChange={() => {}}
+        />
 
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>john</td>
+              <td>male</td>
+              <td>21</td>
+              <td className="actions">
+                <button>edit</button>
+                <button>delete</button>
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
 
+        <div className="pagination"></div>
       </div>
     </div>
   );
