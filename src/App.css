@@ -47,7 +47,7 @@ button{
 }
 
 .add{
-  background-color: #73addf;
+  background-color: #1774c5;
   color: #fff;
   font-weight: 600px;
 
@@ -71,7 +71,63 @@ table th{
   padding: 8px;
   max-width: 350px;
   word-wrap: break-word;
+  text-align: left;
+  color:#fff;
 
+
+}
+table td{
+  font-size: 18px;
+  font-weight:400 ;
+
+}
+table tr:hover{
+  background-color: #3f3c3c;
+}
+tr th {
+  min-width: 100px;
+
+}
+table th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04aa6d;
+  color: white;
+  font-weight: 600;
+
+}
+.actions{
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.edit{
+  background-color: #73addf;
+  color: #fff;
+  text-transform: uppercas;
+}
+.delete{
+  background-color:lightcoral;
+  color: #fff;
+  text-transform: uppercas;
+}
+@media only screen and (max-width:600px){
+  tr th{
+    min-width: unset;
+  }
+  table td {
+    font-size: 14px;
+  }
+  .actions{
+    flex-wrap: wrap;
+    gap: 2px;
+
+  }
+  button{
+    margin: 3px 0;
+
+  }
 }
 
 

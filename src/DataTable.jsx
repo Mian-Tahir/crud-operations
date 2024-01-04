@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 const DataTable = () => {
-  return (
+
+    const [formData, setFormData] = useState({ name: "", gender: "", age: "" });
+     const [data ,setData] =useState([]) 
+     const handleInputChange= (e)=>{
+        setFormData({...formData,[e.target.name]:  e.target.value})
+        console.log(formData);
+
+     }
+     const  handleAddClick = ()=>{
+        if(
+            formData.name && formData.gender && formData.age
+        ){
+            const newItem={
+                id: Date.now(),
+                name:formData.name,
+                gender:formData.gender,
+                age:formData.age
+
+            };
+            setData([...data,newItem])
+            setFormData({name:"", gender:"",age:""})
+        }
+
+     };
+     console.log(data);
+
+ 
+ 
+    return (
     <div className="container">
       <div className="add-container">
         <div className="info-conatiner">
@@ -9,26 +37,26 @@ const DataTable = () => {
             type="text"
             placeholder="Name"
             name="name"
-            value={""}
-            onChange={() => {}}
+            value={formData.name}
+            onChange={handleInputChange}
           />
           <input
             type="text"
             placeholder="Gender"
             name="gender"
-            value={""}
-            onChange={() => {}}
+          value={formData.gender}
+           onChange={handleInputChange}
           />
           <input
             type="text"
             placeholder="Age"
             name="age"
-            value={""}
-            onChange={() => {}}
+            value={formData.age}
+            onChange={handleInputChange}
           />
         </div>
         <div>
-          <button className="addd"> ADD</button>
+          <button className="add" onClick={handleAddClick}> ADD</button>
         </div>
       </div>
       <div className="search-table-container">
@@ -50,16 +78,25 @@ const DataTable = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>john</td>
-              <td>male</td>
-              <td>21</td>
+            {
+            data.map((item)=>(
+                <tr key={item.id}>
+              <td id={item.id}>{item.name}</td>
+              <td id={item.id}>{item.gender}</td>
+              <td id={item.id}>{item.age}</td>
               <td className="actions">
-                <button>edit</button>
-                <button>delete</button>
+                <button className="edit">edit</button>
+                <button className="delete">delete</button>
               </td>
               
-            </tr>
+            </tr> 
+
+            ))
+            
+            
+            }
+            
+            {/* */}
           </tbody>
         </table>
 
